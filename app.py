@@ -1,7 +1,7 @@
 
-from flask import Flask, request
-
-import requests
+import requests 
+from datetime import datetime
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -21,11 +21,24 @@ def search_city():
     apiReq = requests.get(url)
     
     data = apiReq.json()
+    def time_converter(unix):
+        return datetime.utcfromtimestamp(unix).strftime(' %H:%M:%S')
+    rise = data["sys"]["sunrise"]  
+    set = data["sys"]["sunset"]
+    name = data["name"]
+    icon = data["weather"][0]["icon"]
+    description = data["weather"][0]["description"]
+    temp = round(data["main"]["temp"])
+    sunrise = time_converter(rise)
+    sunset = time_converter(set)
+    temp_max = round(data["main"]["temp_max"])
+    temp_min = round(data["main"]["temp_min"])
     
-    print(data["base"])
-    print(data["name"])
     
-    return data
+    # return data
+    
+    return render_template("index.html", name = name, icon = icon, description = description,temp = temp, sunrise = sunrise, sunset = sunset, temp_max = temp_max, temp_min = temp_min)
+
     # # error like unknown city name, inavalid api key
     # if response.get('cod') != 200:
     #     message = response.get('message', '')
