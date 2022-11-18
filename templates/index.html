@@ -16,29 +16,43 @@
             <div>
                 <ul class="nav nav-tabs justify-content-center" >
                     <li class="nav-item">
-                      <a class="nav-link link-light" aria-current="page" href="#">Today</a>
+                      <a class="nav-link link-light" aria-current="page" href="/">Today</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link link-light" href="#">5-day</a>
+                      <a class="nav-link link-light" href="5day">5-day</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link link-light" href="#">Alert</a>
+                      <a class="nav-link link-light" href="alert">Alert</a>
                     </li>
                 </ul>    
             </div>
            <div class="container-fluid">
                 <div class="text-center">
-                    <h4>{{icon}}</h4>
+                    <img style='width: 150px; margin: -20px;' src={{icon}} align="middle" />
                     <h4>{{description}}</h4>
-                    <h4>{{temp}} °C</h4>
+                    <h1 class="fw-bold">{{temp}}°C</h1>
                 </div>
-                <div class="d-flex justify-content-between">   
-                    <h4>{{sunrise}}</h4>
-                    <h4>{{sunset}}</h4>
+                <div class="d-flex justify-content-between p-5">  
+                    <div class="text-center"> 
+                        <img src="{{url_for('static', filename='sunrise.png')}}" />
+                        <h6>Sunrise</h6>
+                        <h4 class="fw-bold">{{sunrise}}</h4>
+                    </div>
+                    <div class="text-center"> 
+                        <img src="{{url_for('static', filename='sunset.png')}}" />
+                        <h6>Sunset</h6>
+                        <h4 class="fw-bold">{{sunset}}</h4>
+                    </div>
                 </div>
                 <div class="d-flex justify-content-evenly">
-                    <h4>{{temp_max}}</h4>
-                    <h4>{{temp_min}}</h4>
+                    <div>
+                        <h4>High</h4>
+                        <h4>{{temp_max}}°C</h4>
+                    </div>
+                    <div>
+                        <h4>Low</h4>
+                        <h4>{{temp_min}}°C</h4>
+                    </div>
                 </div>
            </div>
         </div>
