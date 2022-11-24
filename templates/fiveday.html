@@ -8,7 +8,7 @@
                     {%for day in fiveDayForecast%}
                         <div class="row">
                             <div class="col">
-                                 <p>{{ day.dt_txt }}</p>
+                                 <p>{{ day.dayOfWeek }}</p>
                             </div>
                             <div class="col">
                                 <img style='width: 70px; margin: -20px;' src= 'http://openweathermap.org/img/wn/{{ day.weather[0].icon }}@2x.png' />

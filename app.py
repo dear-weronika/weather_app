@@ -58,7 +58,11 @@ def fiveDay():
     def midDay(day):
         return datetime.fromisoformat(day["dt_txt"]).strftime("%H")=="12"
     # filter elements from data["list"] list that dt_txt property is = 12
-    fiveDayForecast = [d for d in data["list"] if midDay(d)]
+    def addWeekDayToDay(day):
+        weekday = datetime.fromisoformat(day["dt_txt"]).strftime("%A")
+        day["dayOfWeek"]= weekday
+        return day
+    fiveDayForecast = [addWeekDayToDay(d) for d in data["list"] if midDay(d)]
     
     
     name = data["city"]["name"]
