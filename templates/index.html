@@ -1,27 +1,8 @@
+{%extends 'base.html'%}
+{%block main%}
 
-<!doctype html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Happy Rain</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  </head>
-<body>
-    <div class="d-flex justify-content-center align-items-center" style="height:100vh">
-        <div class= "bg-info w-100" style = "max-width: 540px">
-            <nav></nav>
-            <div class="p-5">
-                <h1>{{ name }}</h1>
-            </div>
-                <nav>
-                    <div class="nav nav-tabs justify-content-center" d="nav-tab" role="tablist">
-                            <button class="nav-link active" id="nav-today-tab" data-bs-toggle="tab" data-bs-target="#nav-today" type="button" role="tab" aria-controls="nav-today" aria-selected="true">Today</button>
-                            <button class="nav-link" id="nav-5day-tab" data-bs-toggle="tab" data-bs-target="#nav-5day" type="button" role="tab" aria-controls="nav-5day" aria-selected="false">5-Day</button>
-                            <button class="nav-link" id="nav-alert-tab" data-bs-toggle="tab" data-bs-target="#nav-alert" type="button" role="tab" aria-controls="nav-alert" aria-selected="false">Alert</button>
-                    </div>
-                </nav>
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active container-fluid" id="nav-today" role="tabpanel" aria-labelledby="nav-today-tab">
+
+                <div class="tab-pane fade show active container-fluid" id="nav-today" role="tabpanel" aria-labelledby="nav-today-tab" tabindex="0">
                         <div class="text-center">
                             <img style='width: 150px; margin: -20px;' src={{icon}} align="middle"/>
                             <h4>{{description}}</h4>
@@ -50,25 +31,27 @@
                             </div>
                         </div>
                 </div>
-            </div>      
-        </br>
-                <div class="tab-pane fade container-fluid" id="nav-5day" role="tabpanel" aria-labelledby="nav-5day-tab">
+                
+        
+                <div class="tab-pane fade container-fluid" id="nav-5day" role="tabpanel" aria-labelledby="nav-5day-tab" tabindex="0">
                     <div class="text-center">
                         <img style='width: 150px; margin: -20px;' src={{icon}} align="middle"/>
                         <h4>{{description}}</h4>
                         <h1 class="fw-bold">{{temp}}°C</h1>
                     </div>
-                    <div class="container d-flex justify-content-around">
+                    <div class="container d-flex flex-column justify-content-around">
                         <div class="row">
                           <div class="col">
                             <h4>{{ name }}</h4>
                           </div>
-                        <div class="col">
-                            <img style='width: 70px; margin: -20px;' src={{icon}} />
-                        </div>     
-                        <div class="col">
-                            <h4 class="fw-bold">{{temp}}°C</h4>
-                        </div>
+                            <div class="col">
+                                <img style='width: 70px; margin: -20px;' src={{icon}} />
+                            </div>     
+                            <div class="col">
+                                <h4 class="fw-bold">{{temp}}°C</h4>
+                            </div>
+                        </div>    
+                    </br>
                         <div class="row">
                             <div class="col">
                               <h4>{{ name }}</h4>
@@ -81,8 +64,4 @@
                           </div>
                     </div>
                 </div>
-        </div>
-    </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-</body>
-</html>
+{%endblock%}         

@@ -57,7 +57,6 @@ def fiveDay():
     # Json -> Daytime -> string (hour)
     def midDay(day):
         return datetime.fromisoformat(day["dt_txt"]).strftime("%H")=="12"
-    
     # filter elements from data["list"] list that dt_txt property is = 12
     fiveDayForecast = [d for d in data["list"] if midDay(d)]
     
@@ -69,8 +68,8 @@ def fiveDay():
     temp = round(data["list"][0]["main"]["temp"])
     #         return day
     
-    # return render_template("fiveday.html", hour = weatherTime)
-    return fiveDayForecast
+    return render_template("fiveday.html", fiveDayForecast = fiveDayForecast, name=name)
+    # return fiveDayForecast
     # return render_template("index.html", name = name, icon = icon, description = description,temp = temp, sunrise = sunrise, sunset = sunset, temp_max = temp_max, temp_min = temp_min)
 
 @app.route('/alert')
