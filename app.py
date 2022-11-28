@@ -60,15 +60,56 @@ def airPollution():
     
    
     page = "airpollution"
-    airPollution = helpers.getAirPollutionData
-    aqi = airPollution["main"]["aqi"]
+    airPollution = helpers.getAirPollutionData()
+    aqi = airPollution["list"][0]["main"]["aqi"]
     
-    
+    todayWeather = helpers.getWeatherData()
+    name = todayWeather["name"]
+    icon = f'http://openweathermap.org/img/wn/{todayWeather["weather"][0]["icon"]}@2x.png'
+    description = todayWeather["weather"][0]["description"]
+    temp = round(todayWeather["main"]["temp"])
    
   
     # return airPollution
     
-    return render_template("airpollution.html", page = page, aqi = aqi)
+    return render_template("airpollution.html", aqi = aqi,   page = page, name = name, icon = icon, description = description,temp = temp)
+
+
+@app.route('/london')
+def london():
+    todayWeatherLon = helpers.getWeatherDataLondon()
+    rise = todayWeatherLon["sys"]["sunrise"]  
+    set = todayWeatherLon["sys"]["sunset"]
+    name = todayWeatherLon["name"]
+    page = "london"
+    icon = f'http://openweathermap.org/img/wn/{todayWeatherLon["weather"][0]["icon"]}@2x.png'
+    description = todayWeatherLon["weather"][0]["description"]
+    temp = round(todayWeatherLon["main"]["temp"])
+    sunrise = helpers.time_converter(rise)
+    sunset = helpers.time_converter(set)
+    temp_max = round(todayWeatherLon["main"]["temp_max"])
+    temp_min = round(todayWeatherLon["main"]["temp_min"])
+   
+
+    return render_template("london.html", page = page, name = name, icon = icon, description = description,temp = temp, sunrise = sunrise, sunset = sunset, temp_max = temp_max, temp_min = temp_min)
+
+@app.route('/paris')
+def paris():
+    todayWeatherParis= helpers.getWeatherDataParis()
+    rise = todayWeatherParis["sys"]["sunrise"]  
+    set = todayWeatherParis["sys"]["sunset"]
+    name = todayWeatherParis["name"]
+    page = "paris"
+    icon = f'http://openweathermap.org/img/wn/{todayWeatherParis["weather"][0]["icon"]}@2x.png'
+    description = todayWeatherParis["weather"][0]["description"]
+    temp = round(todayWeatherParis["main"]["temp"])
+    sunrise = helpers.time_converter(rise)
+    sunset = helpers.time_converter(set)
+    temp_max = round(todayWeatherParis["main"]["temp_max"])
+    temp_min = round(todayWeatherParis["main"]["temp_min"])
+   
+
+    return render_template("paris.html", page = page, name = name, icon = icon, description = description,temp = temp, sunrise = sunrise, sunset = sunset, temp_max = temp_max, temp_min = temp_min)
 
 
 if __name__ == '__main__':
