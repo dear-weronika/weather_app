@@ -3,11 +3,12 @@
 
 
                 <div class="tab-pane fade show active container-fluid" id="nav-today" role="tabpanel" aria-labelledby="nav-today-tab" tabindex="0">
-                        <div class="text-center">
-                            <img style='width: 150px; margin: -20px;' src={{icon}} align="middle"/>
-                            <h4>{{description}}</h4>
-                            <h1 class="fw-bold">{{temp}}°C</h1>
-                        </div>
+                   
+                    <div class="text-center">
+                        <img style='width: 150px; margin: -20px;' src={{icon}} align="middle"/>
+                        <h4>{{description}}</h4>
+                        <h1 class="fw-bold">{{temp}}°C</h1>
+                    </div>
                         <div class="d-flex justify-content-between p-5">  
                             <div class="text-center"> 
                                 <img src="{{url_for('static', filename='sunrise.png')}}" />
@@ -33,35 +34,4 @@
                 </div>
                 
         
-                <div class="tab-pane fade container-fluid" id="nav-5day" role="tabpanel" aria-labelledby="nav-5day-tab" tabindex="0">
-                    <div class="text-center">
-                        <img style='width: 150px; margin: -20px;' src={{icon}} align="middle"/>
-                        <h4>{{description}}</h4>
-                        <h1 class="fw-bold">{{temp}}°C</h1>
-                    </div>
-                    <div class="container d-flex flex-column justify-content-around">
-                        <div class="row">
-                          <div class="col">
-                            <h4>{{ name }}</h4>
-                          </div>
-                            <div class="col">
-                                <img style='width: 70px; margin: -20px;' src={{icon}} />
-                            </div>     
-                            <div class="col">
-                                <h4 class="fw-bold">{{temp}}°C</h4>
-                            </div>
-                        </div>    
-                    </br>
-                        <div class="row">
-                            <div class="col">
-                              <h4>{{ name }}</h4>
-                            </div>
-                          <div class="col">
-                              <img style='width: 70px; margin: -20px;' src={{icon}} />
-                          </div>     
-                          <div class="col">
-                              <h4 class="fw-bold">{{temp}}°C</h4>
-                          </div>
-                    </div>
-                </div>
 {%endblock%}         

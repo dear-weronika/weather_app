@@ -15,9 +15,9 @@
             </div>
                 <nav>
                     <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-                           <a href="/"> <button class="nav-link active" id="nav-today-tab" data-bs-toggle="tab" data-bs-target="#nav-today" type="button" role="tab" aria-controls="nav-today" aria-selected="true">Today</button></a>
-                           <a href="/5day"> <button class="nav-link" id="nav-5day-tab" data-bs-toggle="tab" data-bs-target="#nav-5day" type="button" role="tab" aria-controls="nav-5day" aria-selected="false">5-Day</button></a>
-                           <a href="/alert"> <button class="nav-link" id="nav-alert-tab" data-bs-toggle="tab" data-bs-target="#nav-alert" type="button" role="tab" aria-controls="nav-alert" aria-selected="false">Alert</button></a>
+                           <a href="/"> <button class="nav-link {{'active' if page=='today'}}" id="nav-today-tab" data-bs-toggle="tab" data-bs-target="#nav-today" type="button" role="tab" aria-controls="nav-today" aria-selected="true">Today</button></a>
+                           <a href="/5day"> <button class="nav-link {{'active' if page=='5day'}}" id="nav-5day-tab" data-bs-toggle="tab" data-bs-target="#nav-5day" type="button" role="tab" aria-controls="nav-5day" aria-selected="false">5-Day</button></a>
+                           <a href="/airpollution"> <button class="nav-link {{'active' if page=='airpollution'}}" id="nav-airpollution-tab" data-bs-toggle="tab" data-bs-target="#nav-airpollution" type="button" role="tab" aria-controls="nav-alert" aria-selected="false">Air Pollution</button></a>
                     </div>
                 </nav>
             <div class="tab-content" id="myTabContent">
