@@ -7,17 +7,17 @@
                         <h4>{{description}}</h4>
                         <h1 class="fw-bold">{{temp}}°C</h1>
                     </div>
-                    <div class="container d-flex flex-column justify-content-around">
+                    <div class="container d-flex flex-column justify-content-around gap-4">
                     {%for day in fiveDayForecast%}
-                        <div class="row">
+                        <div class="row text-center">
                             <div class="col">
-                                 <p>{{ day.dayOfWeek }}</p>
+                                 <h5>{{ day.dayOfWeek }}</h5>
                             </div>
                             <div class="col">
                                 <img style='width: 70px; margin: -20px;' src= 'http://openweathermap.org/img/wn/{{ day.weather[0].icon }}@2x.png' />
                             </div>
                             <div class="col">
-                                 <p>{{ day.tempToShow }}</p>
+                                 <h5>{{ day.tempToShow }}</h5>
                             </div>
                         </div>    
                     {%endfor%}
