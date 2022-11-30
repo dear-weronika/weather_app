@@ -11,8 +11,10 @@ def addPrettyFormat(day_dict):
         day_dict["tempToShow"]= str(round(day_dict["main"]["temp"]))+ "°C"
         return day_dict
     
-AQI = ['', 'Good 🤪', 'Fair 😌', 'Modarate 😐', 'Poor 😵', 'Very Poor ☠️']
+AQI = ['', 'Good 😊', 'Fair 😌', 'Modarate 😐', 'Poor 😵', 'Very Poor ☠️']
 AQIC = ['','bg-success','bg-info','bg-secondary','bg-warning','bg-danger']
+AQID = ['','Enjoy your usual outdoor activities','Air quality is acceptable and pollution poses no health risk.', 'If you are sensitive to air pollution, consider reducing physical exertion','Consider reducing intense activities outdoors if you experiance symptoms such as sore eyes, cough or sore throat'
+        'Sensitive people may experiance adverse health effects and should avoid outdoor activities']
     
 def getWeatherData():
    return getAPIdataEdinburgh('weather')

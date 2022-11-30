@@ -51,13 +51,14 @@ def airPollutionEdinburgh():
     airPollution = helpers.getAirPollutionData()
     aqi = helpers.AQI[airPollution["list"][0]["main"]["aqi"]]
     aqic = helpers.AQIC[airPollution["list"][0]["main"]["aqi"]]
+    aqid = helpers.AQID[airPollution["list"][0]["main"]["aqi"]]
     todayWeather = helpers.getWeatherData()
     name = todayWeather["name"]
     icon = f'http://openweathermap.org/img/wn/{todayWeather["weather"][0]["icon"]}@2x.png'
     description = todayWeather["weather"][0]["description"]
     temp = round(todayWeather["main"]["temp"])
     
-    return render_template("airpollution.html", aqi = aqi, aqic = aqic, page = page, name = name, lowerName = name.lower(), icon = icon, description = description,temp = temp)
+    return render_template("airpollution.html", aqi = aqi, aqic = aqic, aqid = aqid, page = page, name = name, lowerName = name.lower(), icon = icon, description = description,temp = temp)
 
 
 @app.route('/london')
@@ -103,13 +104,14 @@ def airPollutionLondon():
     airPollution = helpers.getAirPollutionDataLondon()
     aqi = helpers.AQI[airPollution["list"][0]["main"]["aqi"]]
     aqic = helpers.AQIC[airPollution["list"][0]["main"]["aqi"]]
+    aqid = helpers.AQID[airPollution["list"][0]["main"]["aqi"]]
     todayWeather = helpers.getWeatherDataLondon()
     name = todayWeather["name"]
     icon = f'http://openweathermap.org/img/wn/{todayWeather["weather"][0]["icon"]}@2x.png'
     description = todayWeather["weather"][0]["description"]
     temp = round(todayWeather["main"]["temp"])
     
-    return render_template("airpollution.html", aqi = aqi, aqic = aqic, page = page, name = name, lowerName = name.lower(), icon = icon, description = description,temp = temp)
+    return render_template("airpollution.html", aqi = aqi, aqic = aqic, aqid = aqid, page = page, name = name, lowerName = name.lower(), icon = icon, description = description,temp = temp)
 
 
 @app.route('/paris')
@@ -154,13 +156,14 @@ def airPollutionParis():
     airPollution = helpers.getAirPollutionDataParis()
     aqi = helpers.AQI[airPollution["list"][0]["main"]["aqi"]]
     aqic = helpers.AQIC[airPollution["list"][0]["main"]["aqi"]]
+    aqid = helpers.AQID[airPollution["list"][0]["main"]["aqi"]]
     todayWeather = helpers.getWeatherDataParis()
     name = todayWeather["name"]
     icon = f'http://openweathermap.org/img/wn/{todayWeather["weather"][0]["icon"]}@2x.png'
     description = todayWeather["weather"][0]["description"]
     temp = round(todayWeather["main"]["temp"])
     
-    return render_template("airpollution.html", aqi = aqi, aqic = aqic, page = page, name = name, lowerName = name.lower(), icon = icon, description = description,temp = temp)   
+    return render_template("airpollution.html", aqi = aqi, aqic = aqic, aqid = aqid, page = page, name = name, lowerName = name.lower(), icon = icon, description = description,temp = temp)   
     
     
 if __name__ == '__main__':
